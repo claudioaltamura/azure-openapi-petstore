@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
@@ -18,7 +19,7 @@ import jakarta.annotation.Generated;
  * Error
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-09-17T16:31:34.688803+02:00[Europe/Berlin]", comments = "Generator version: 7.8.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-09-10T08:51:54.221268+02:00[Europe/Berlin]", comments = "Generator version: 7.25.0")
 public class Error {
 
   private Integer code;
@@ -53,6 +54,7 @@ public class Error {
     return code;
   }
 
+  @JsonProperty("code")
   public void setCode(Integer code) {
     this.code = code;
   }
@@ -73,6 +75,7 @@ public class Error {
     return message;
   }
 
+  @JsonProperty("message")
   public void setMessage(String message) {
     this.message = message;
   }
@@ -109,11 +112,8 @@ public class Error {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
   
   public static class Builder {

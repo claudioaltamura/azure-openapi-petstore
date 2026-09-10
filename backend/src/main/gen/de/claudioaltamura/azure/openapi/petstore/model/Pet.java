@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
@@ -18,12 +19,12 @@ import jakarta.annotation.Generated;
  * Pet
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-09-17T16:31:34.688803+02:00[Europe/Berlin]", comments = "Generator version: 7.8.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-09-10T08:51:54.221268+02:00[Europe/Berlin]", comments = "Generator version: 7.25.0")
 public class Pet {
 
   private String name;
 
-  private String tag;
+  private @Nullable String tag;
 
   private Long id;
 
@@ -55,11 +56,12 @@ public class Pet {
     return name;
   }
 
+  @JsonProperty("name")
   public void setName(String name) {
     this.name = name;
   }
 
-  public Pet tag(String tag) {
+  public Pet tag(@Nullable String tag) {
     this.tag = tag;
     return this;
   }
@@ -71,11 +73,12 @@ public class Pet {
   
   @Schema(name = "tag", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("tag")
-  public String getTag() {
+  public @Nullable String getTag() {
     return tag;
   }
 
-  public void setTag(String tag) {
+  @JsonProperty("tag")
+  public void setTag(@Nullable String tag) {
     this.tag = tag;
   }
 
@@ -95,6 +98,7 @@ public class Pet {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(Long id) {
     this.id = id;
   }
@@ -133,11 +137,8 @@ public class Pet {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
   
   public static class Builder {
